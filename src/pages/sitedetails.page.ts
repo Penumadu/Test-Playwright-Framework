@@ -1,4 +1,5 @@
 // Import the base page class to inherit common functionality
+import { Page } from '@playwright/test';
 import { BasePage } from './base.page';
 
 /**
@@ -6,6 +7,12 @@ import { BasePage } from './base.page';
  * Extends BasePage to inherit common page interaction methods
  */
 export class SiteDetailsPage extends BasePage {
+  constructor(page: Page) {
+    super(page);
+    // Locators will be defined here as needed
+    // Example: this.someElement = this.page.getByLabel('someLabel');
+  }
+
   /**
    * Navigates to the site details page for a specific site
    * @param siteId - The ID of the site to view details for

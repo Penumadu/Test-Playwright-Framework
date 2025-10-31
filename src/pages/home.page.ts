@@ -1,4 +1,5 @@
 // Import the base page class to inherit common functionality
+import { Locator, Page } from '@playwright/test';
 import { BasePage } from './base.page';
 
 /**
@@ -6,6 +7,15 @@ import { BasePage } from './base.page';
  * Extends BasePage to inherit common page interaction methods
  */
 export class HomePage extends BasePage {
+  // Locators defined at the top for better maintainability
+  private readonly welcomeTitle: Locator;
+
+  constructor(page: Page) {
+    super(page);
+    // Initialize locators
+    this.welcomeTitle = this.page.locator('h1').first();
+  }
+
   /**
    * Opens the home page by navigating to the root path
    */
@@ -19,8 +29,8 @@ export class HomePage extends BasePage {
    * @returns Promise resolving to the title text or null if not found
    */
   async getWelcomeTitle(): Promise<string | null> {
-    // Locate the first h1 heading element and get its text content
-    return this.page.locator('h1').first().textContent();
+    // Use the locator to get text content
+    return this.welcomeTitle.textContent();
   }
 }
 
