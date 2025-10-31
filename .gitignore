@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.auth/
+test-results/
+playwright-report/
+*.log
+.env
+.DS_Store
+coverage/
+
+
