@@ -31,7 +31,7 @@ export default defineConfig({
   // Default options applied to all tests
   use: {
     // Base URL for all tests (from .env or default staging environment)
-    baseURL: process.env.BASE_URL || 'https://intra.stage.sites.gov.on.ca',
+    baseURL: process.env.BASE_URL,
     // Capture trace only on first retry (saves disk space)
     trace: 'on-first-retry',
     // Take screenshots only when tests fail
